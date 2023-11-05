@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#D#",
+    "DND",
+    "#D#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:paper"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "N": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "result": {
+    "item": "cobblemon_ability_addon:ability_patch",
+    "count": 1
+  }
+}
