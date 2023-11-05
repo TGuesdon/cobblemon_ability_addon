@@ -4,5 +4,7 @@
   "itemGroup.cobblemon_ability_tab": "Cobblemon Ability",
   "cobblemon_ability_addon.errors.has_hidden_ability": "This pokemon has his hidden ability",
   "cobblemon_ability_addon.errors.only_one_ability": "This pokemon cannot switch ability",
-  "cobblemon_ability_addon.errors.no_hidden_ability": "This pokemon does not have an hidden ability"
+  "cobblemon_ability_addon.errors.no_hidden_ability": "This pokemon does not have an hidden ability",
+  "cobblemon_ability_addon.sucess.change_ability": "Ability sucessfully changed !"
+
 }

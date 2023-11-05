@@ -52,6 +52,8 @@ public final class AbilityCapsule extends PokemonItem {
             itemStack.setCount(itemStack.getCount() - 1);
         }
 
+        player.sendSystemMessage(Component.translatable("cobblemon_ability_addon.sucess.change_ability"));
+
         return InteractionResult.SUCCESS;
     }
 }

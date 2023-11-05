@@ -12,6 +12,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.UUID;
+
 abstract class PokemonItem extends Item {
     public PokemonItem(Properties arg) {
         super(arg);
@@ -21,7 +23,7 @@ abstract class PokemonItem extends Item {
     @NotNull
     public InteractionResult interactLivingEntity(ItemStack itemStack, Player player, LivingEntity target, InteractionHand hand) {
         if(player.level().isClientSide()) {
-            return InteractionResult.PASS;
+            return use(player.level(), player, hand).getResult();
         }
 
         if(!(target instanceof PokemonEntity)){
@@ -29,12 +31,12 @@ abstract class PokemonItem extends Item {
         }
 
         Pokemon pokemon = ((PokemonEntity) target).getPokemon();
-        StoreCoordinates<?> storeCoordinates = pokemon.getStoreCoordinates().get();
+        UUID ownerUUID = pokemon.getOwnerUUID();
         PokemonEntityInteraction.Ownership ownership;
 
-        if(storeCoordinates == null) {
+        if(ownerUUID == null) {
             ownership = PokemonEntityInteraction.Ownership.WILD;
-        }else if(storeCoordinates.getStore().getUuid() == player.getUUID()){
+        }else if(ownerUUID.toString().equals(player.getUUID().toString())){
             ownership = PokemonEntityInteraction.Ownership.OWNER;
         }else{
             ownership = PokemonEntityInteraction.Ownership.OWNED_ANOTHER;
